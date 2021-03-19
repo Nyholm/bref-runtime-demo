@@ -27,7 +27,6 @@ class ConsoleApplicationRunner implements RunnerInterface
 
                 $args = \Clue\Arguments\split((string) $event);
                 array_unshift($args, 'command');
-                error_log(var_dump($args));
 
                 $input = new ArgvInput($args);
                 $output = new BufferedOutput();
