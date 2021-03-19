@@ -32,10 +32,8 @@ class SymfonyHttpHandler extends HttpHandler
             'REQUEST_URI' => $event->getUri(),
         ];
 
-        $headers = $event->getHeaders();
-        error_log(json_encode($headers));
-        if (isset($headers['Host'])) {
-            $server['HTTP_HOST'] = $headers['Host'];
+        foreach($event->getHeaders() as $name => $values) {
+            $server['HTTP_'.strtoupper($name)] = $values[0];
         }
 
         // TODO convert request better
@@ -48,6 +46,8 @@ class SymfonyHttpHandler extends HttpHandler
             $server,
             $event->getBody()
         );
+
+
 
         $response = $this->kernel->handle($request);
 
