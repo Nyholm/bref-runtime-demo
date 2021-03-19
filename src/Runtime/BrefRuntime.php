@@ -41,7 +41,7 @@ class BrefRuntime extends SymfonyRuntime
         }
 
         if ($application instanceof Handler) {
-            return new BrefRunner($application, $this->options['loop_max']);
+            return new BrefRunner($application, $this->options['bref_loop_max']);
         }
 
         return parent::getRunner($application);
