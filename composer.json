@@ -58,5 +58,11 @@
             "require": "5.*"
         }
     },
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/php-runtime/bref"
+        }
+    ]
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "003690402b5c29fc846dd9371c2c611c",
+    "content-hash": "d29214a16f0485f91c10f65cd6bdfb23",
     "packages": [
         {
             "name": "async-aws/core",
@@ -996,6 +996,64 @@
                 "source": "https://github.com/Riverline/multipart-parser/tree/2.0.8"
             },
             "time": "2020-01-24T09:39:24+00:00"
+        },
+        {
+            "name": "runtime/bref",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-runtime/bref.git",
+                "reference": "d39c25af51cee6b308ddc23c18ca8accdb51bc3a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-runtime/bref/zipball/d39c25af51cee6b308ddc23c18ca8accdb51bc3a",
+                "reference": "d39c25af51cee6b308ddc23c18ca8accdb51bc3a",
+                "shasum": ""
+            },
+            "require": {
+                "bref/bref": "^1.2",
+                "clue/arguments": "^2.1",
+                "psr/http-server-handler": "^1.0",
+                "symfony/runtime": "5.x-dev"
+            },
+            "require-dev": {
+                "symfony/http-foundation": "^4.4 || ^5.2",
+                "symfony/http-kernel": "^4.4 || ^5.2",
+                "symfony/phpunit-bridge": "^5.2"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Runtime\\Bref\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Runtime\\Bref\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nyholm",
+                    "email": "tobias.nyholm@gmail.com"
+                }
+            ],
+            "description": "Bref runtime",
+            "support": {
+                "source": "https://github.com/php-runtime/bref/tree/main"
+            },
+            "funding": [
+                {
+                    "type": "github",
+                    "url": "https://github.com/nyholm"
+                }
+            ],
+            "time": "2021-03-19T23:10:59+00:00"
         },
         {
             "name": "symfony/cache",
@@ -3532,7 +3590,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "runtime/bref": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

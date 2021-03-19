@@ -59,6 +59,9 @@
     "riverline/multipart-parser": {
         "version": "2.0.8"
     },
+    "runtime/bref": {
+        "version": "dev-main"
+    },
     "symfony/cache": {
         "version": "5.x-dev"
     },
