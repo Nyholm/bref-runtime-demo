@@ -8,6 +8,9 @@
     "bref/bref": {
         "version": "dev-master"
     },
+    "clue/arguments": {
+        "version": "v2.1.0"
+    },
     "hollodotme/fast-cgi-client": {
         "version": "v3.1.5"
     },

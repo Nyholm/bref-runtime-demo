@@ -24,15 +24,12 @@ class ConsoleApplicationRunner implements RunnerInterface
 
         while(true) {
             $lambda->processNextEvent(function ($event, Context $context): array {
+
+                $args = \Clue\Arguments\split($event);
+                array_unshift($args, 'command');
                 error_log(var_dump($event));
 
-                $argv = explode(' ', (string)$event);
-                foreach ($argv as &$val) {
-                    $val = substr($val, 1, -1);
-                }
-                array_unshift($argv, 'command');
-
-                $input = new ArgvInput($argv);
+                $input = new ArgvInput($args);
                 $output = new BufferedOutput();
                 $exitCode = $this->application->run($input, $output);
 

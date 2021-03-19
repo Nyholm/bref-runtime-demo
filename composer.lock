@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "89c2c7ef463b0c7679901335a3f7bf23",
+    "content-hash": "003690402b5c29fc846dd9371c2c611c",
     "packages": [
         {
             "name": "async-aws/core",
@@ -205,6 +205,73 @@
                 }
             ],
             "time": "2021-03-16T18:49:44+00:00"
+        },
+        {
+            "name": "clue/arguments",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/clue/arguments.git",
+                "reference": "87f2c4bc2ff602173bc52f5935a9c3b70d8c996d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/clue/arguments/zipball/87f2c4bc2ff602173bc52f5935a9c3b70d8c996d",
+                "reference": "87f2c4bc2ff602173bc52f5935a9c3b70d8c996d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.3 || ^5.7 || ^4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "psr-4": {
+                    "Clue\\Arguments\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Lück",
+                    "email": "christian@clue.engineering"
+                }
+            ],
+            "description": "The simple way to split your command line string into an array of command arguments in PHP.",
+            "homepage": "https://github.com/clue/arguments",
+            "keywords": [
+                "args",
+                "arguments",
+                "argv",
+                "command",
+                "command line",
+                "explode",
+                "parse",
+                "split"
+            ],
+            "support": {
+                "issues": "https://github.com/clue/arguments/issues",
+                "source": "https://github.com/clue/arguments/tree/v2.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://clue.engineering/support",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/clue",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-12-08T13:02:50+00:00"
         },
         {
             "name": "hollodotme/fast-cgi-client",
