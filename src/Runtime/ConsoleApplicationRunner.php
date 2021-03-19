@@ -34,7 +34,7 @@ class ConsoleApplicationRunner implements RunnerInterface
                 echo $output->fetch();
 
                 if ($exitCode > 0) {
-                    throw new \RuntimeException('The command exited with a non-zero status code: ' . $exitCode);
+                    throw new \Exception('The command exited with a non-zero status code: ' . $exitCode);
                 }
 
                 return [
