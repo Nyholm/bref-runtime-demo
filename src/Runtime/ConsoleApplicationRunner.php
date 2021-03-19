@@ -22,34 +22,34 @@ class ConsoleApplicationRunner implements RunnerInterface
     {
         $lambda = LambdaRuntime::fromEnvironmentVariable();
 
-        $lambda->processNextEvent(function ($event, Context $context): array {
-            error_log(var_dump($event));
-            if (is_array($event)) {
-                // Backward compatibility with the former CLI invocation format
-                $cliOptions = $event['cli'] ?? '';
-            } elseif (is_string($event)) {
-                $cliOptions = $event;
-            } else {
-                $cliOptions = '';
-            }
+        while(true) {
+            $lambda->processNextEvent(function ($event, Context $context): array {
+                error_log(var_dump($event));
+                if (is_array($event)) {
+                    // Backward compatibility with the former CLI invocation format
+                    $cliOptions = $event['cli'] ?? '';
+                } elseif (is_string($event)) {
+                    $cliOptions = $event;
+                } else {
+                    $cliOptions = '';
+                }
 
-            $input = new ArgvInput(explode(' ', $cliOptions));
-            $output = new BufferedOutput();
-            $exitCode = $this->application->run($input, $output);
+                $input = new ArgvInput(explode(' ', $cliOptions));
+                $output = new BufferedOutput();
+                $exitCode = $this->application->run($input, $output);
 
-            // Echo the output so that it is written to CloudWatch logs
-            echo $output->fetch();
+                // Echo the output so that it is written to CloudWatch logs
+                echo $output->fetch();
 
-            if ($exitCode > 0) {
-                throw new \RuntimeException('The command exited with a non-zero status code: '.$exitCode);
-            }
+                if ($exitCode > 0) {
+                    throw new \RuntimeException('The command exited with a non-zero status code: ' . $exitCode);
+                }
 
-            return [
-                'exitCode' => $exitCode, // will always be 0
-                'output' => $output->fetch(),
-            ];
-        });
-
-        return 0;
+                return [
+                    'exitCode' => $exitCode, // will always be 0
+                    'output' => $output->fetch(),
+                ];
+            });
+        }
     }
 }
