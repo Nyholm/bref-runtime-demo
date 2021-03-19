@@ -58,6 +58,7 @@ class SymfonyKernelRunner implements RunnerInterface
             return new HttpResponse($response->getContent(), $response->headers->all(), $response->getStatusCode());
         });
 
+        exit(0);
         return 0;
     }
 }
