@@ -33,6 +33,7 @@ class SymfonyHttpHandler extends HttpHandler
         ];
 
         $headers = $event->getHeaders();
+        error_log(json_encode($headers));
         if (isset($headers['Host'])) {
             $server['HTTP_HOST'] = $headers['Host'];
         }
