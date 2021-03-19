@@ -25,16 +25,8 @@ class ConsoleApplicationRunner implements RunnerInterface
         while(true) {
             $lambda->processNextEvent(function ($event, Context $context): array {
                 error_log(var_dump($event));
-                if (is_array($event)) {
-                    // Backward compatibility with the former CLI invocation format
-                    $cliOptions = $event['cli'] ?? '';
-                } elseif (is_string($event)) {
-                    $cliOptions = $event;
-                } else {
-                    $cliOptions = '';
-                }
 
-                $input = new ArgvInput(explode(' ', $cliOptions));
+                $input = new ArgvInput(explode(' ', (string) $event));
                 $output = new BufferedOutput();
                 $exitCode = $this->application->run($input, $output);
 
