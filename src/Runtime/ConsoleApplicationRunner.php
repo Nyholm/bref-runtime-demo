@@ -25,9 +25,9 @@ class ConsoleApplicationRunner implements RunnerInterface
         while(true) {
             $lambda->processNextEvent(function ($event, Context $context): array {
 
-                $args = \Clue\Arguments\split($event);
+                $args = \Clue\Arguments\split((string) $event);
                 array_unshift($args, 'command');
-                error_log(var_dump($event));
+                error_log(var_dump($args));
 
                 $input = new ArgvInput($args);
                 $output = new BufferedOutput();
