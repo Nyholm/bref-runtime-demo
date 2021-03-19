@@ -27,7 +27,7 @@ functions:
         timeout: 8
         layers:
             - ${bref:layer.php-74}
-            - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:2
+            - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:3
         events:
             -   httpApi: 'GET /'
 
@@ -37,7 +37,7 @@ functions:
         timeout: 8
         layers:
             - ${bref:layer.php-74}
-            - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:2
+            - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:3
         events:
             -   httpApi: 'GET /psr'
 
@@ -47,7 +47,7 @@ functions:
         timeout: 8
         layers:
             - ${bref:layer.php-74}
-            - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:2
+            - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:3
         events:
             -   httpApi: 'GET /container'
 
