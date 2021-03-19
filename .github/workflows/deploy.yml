@@ -28,9 +28,11 @@ jobs:
         run: npm ci
 
       - name: Download dependencies
+        uses: ramsey/composer-install@v1
         env:
           APP_ENV: prod
-        run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+        with:
+          composer-options: --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
       - name: Warm up cache
         run: |
