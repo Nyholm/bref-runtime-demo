@@ -6,6 +6,7 @@ use Bref\Event\Handler;
 use Bref\Event\Http\Psr15Handler;
 use Psr\Http\Server\RequestHandlerInterface;
 use Psr\Container\ContainerInterface;
+use Symfony\Component\Console\Application;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\Runtime\RunnerInterface;
 use Symfony\Component\Runtime\SymfonyRuntime;
@@ -42,6 +43,12 @@ class BrefRuntime extends SymfonyRuntime
 
         if ($application instanceof Handler) {
             return new BrefRunner($application, $this->options['bref_loop_max']);
+        }
+
+        if ($application instanceof Application) {
+            $defaultEnv = !isset($this->options['env']) ? ($_SERVER['APP_ENV'] ?? 'dev') : null;
+
+            return new ConsoleApplicationRunner($application, $defaultEnv);
         }
 
         return parent::getRunner($application);
