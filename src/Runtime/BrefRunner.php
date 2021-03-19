@@ -6,7 +6,7 @@ use Bref\Event\Handler;
 use Bref\Runtime\LambdaRuntime;
 use Symfony\Component\Runtime\RunnerInterface;
 
-class BrefHandlerRunner implements RunnerInterface
+class BrefRunner implements RunnerInterface
 {
     private $handler;
 
@@ -18,7 +18,15 @@ class BrefHandlerRunner implements RunnerInterface
     public function run(): int
     {
         $lambda = LambdaRuntime::fromEnvironmentVariable();
-        $lambda->processNextEvent($this->handler);
+
+        $loopMax = getenv('BREF_LOOP_MAX') ?: 1;
+        $loops = 0;
+        while (true) {
+            if (++$loops > $loopMax) {
+                return 0;
+            }
+            $lambda->processNextEvent($this->handler);
+        }
 
         return 0;
     }
