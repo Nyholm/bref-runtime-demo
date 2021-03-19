@@ -37,7 +37,7 @@ jobs:
       - name: Warm up cache
         run: |
           rm -rf var/cache/*
-          bin/console cache:warmup --env=prod
+          LAMBDA_TASK_ROOT=bref bin/console cache:warmup --env=prod
           echo "<?php return [];" > .env.local.php
 
       - name: Serverless deploy
