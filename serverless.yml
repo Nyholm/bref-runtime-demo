@@ -27,7 +27,7 @@ functions:
         timeout: 8
         layers:
             - ${bref:layer.php-74}
-            - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:1
+            - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:2
         events:
             -   httpApi: 'GET /sf'
 
@@ -37,9 +37,20 @@ functions:
         timeout: 8
         layers:
             - ${bref:layer.php-74}
-            - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:1
+            - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:2
         events:
             -   httpApi: 'GET /psr'
+
+    container:
+        handler: public/container.php:App\MyHandler
+        description: ''
+        timeout: 8
+        layers:
+            - ${bref:layer.php-74}
+            - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:2
+        events:
+            -   httpApi: 'GET /container'
+
 
 # Exclude files from deployment
 package:
