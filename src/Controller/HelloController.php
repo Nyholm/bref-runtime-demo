@@ -6,11 +6,18 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class HelloController extends AbstractController
 {
     public function index()
     {
-        return new Response('Hello Symfony');
+        $url = $this->generateUrl('foo', [], UrlGeneratorInterface::ABSOLUTE_URL);
+        return new Response('Hello Symfony: '.$url);
+    }
+
+    public function foo()
+    {
+        return new Response('Foo Symfony');
     }
 }

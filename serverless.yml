@@ -29,7 +29,7 @@ functions:
             - ${bref:layer.php-74}
             - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:2
         events:
-            -   httpApi: 'GET /sf'
+            -   httpApi: 'GET /'
 
     psr:
         handler: public/psr.php
