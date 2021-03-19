@@ -5,7 +5,7 @@ namespace App\Runtime;
 use Bref\Context\Context;
 use Bref\Runtime\LambdaRuntime;
 use Symfony\Component\Console\Application;
-use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Runtime\RunnerInterface;
 
@@ -33,7 +33,7 @@ class ConsoleApplicationRunner implements RunnerInterface
                 $cliOptions = '';
             }
 
-            $input = new ArrayInput(explode(' ', $cliOptions));
+            $input = new ArgvInput(explode(' ', $cliOptions));
             $output = new BufferedOutput();
             $exitCode = $this->application->run($input, $output);
 
