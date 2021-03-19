@@ -12,6 +12,8 @@ provider:
     deploymentBucket:
         name: nyholm-lambda-applications
     deploymentPrefix: com.subtreesplit/${sls:instanceId}
+    environment:
+        APP_ENV: prod
 
 plugins:
     - ./vendor/bref/bref
