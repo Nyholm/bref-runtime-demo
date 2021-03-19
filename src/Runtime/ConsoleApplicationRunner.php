@@ -23,6 +23,7 @@ class ConsoleApplicationRunner implements RunnerInterface
         $lambda = LambdaRuntime::fromEnvironmentVariable();
 
         $lambda->processNextEvent(function ($event, Context $context): array {
+            error_log(var_dump($event));
             if (is_array($event)) {
                 // Backward compatibility with the former CLI invocation format
                 $cliOptions = $event['cli'] ?? '';
