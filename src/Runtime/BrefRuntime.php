@@ -13,15 +13,15 @@ class BrefRuntime extends SymfonyRuntime
     public function getRunner(?object $application): RunnerInterface
     {
         if ($application instanceof HttpKernelInterface) {
-            return new SymfonyKernelRunner($application);
-        }
-
-        if ($application instanceof RequestHandlerInterface) {
-            return new Psr15HandlerRunner($application);
+            $application = new SymfonyHttpHandler($application);
         }
 
         if ($application instanceof Handler) {
             return new BrefHandlerRunner($application);
+        }
+
+        if ($application instanceof RequestHandlerInterface) {
+            return new Psr15HandlerRunner($application);
         }
 
         return parent::getRunner($application);
