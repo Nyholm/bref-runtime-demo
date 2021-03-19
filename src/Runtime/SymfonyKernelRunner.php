@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Runtime;
 
 use Bref\Context\Context;
