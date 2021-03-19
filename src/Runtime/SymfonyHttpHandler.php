@@ -21,7 +21,7 @@ class SymfonyHttpHandler extends HttpHandler
 
     public function handleRequest(HttpRequestEvent $event, Context $context): HttpResponse
     {
-        Request::setTrustedProxies(['127.0.0.1']);
+        Request::setTrustedProxies(['127.0.0.1'], Request::HEADER_X_FORWARDED_FOR | Request::HEADER_X_FORWARDED_HOST | Request::HEADER_X_FORWARDED_PORT | Request::HEADER_X_FORWARDED_PROTO);
         $server = [
             'SERVER_PROTOCOL' => $event->getProtocolVersion(),
             'REQUEST_METHOD' => $event->getMethod(),
