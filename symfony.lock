@@ -1,4 +1,37 @@
 {
+    "async-aws/core": {
+        "version": "1.10-dev"
+    },
+    "async-aws/lambda": {
+        "version": "1.4-dev"
+    },
+    "bref/bref": {
+        "version": "dev-master"
+    },
+    "hollodotme/fast-cgi-client": {
+        "version": "v3.1.5"
+    },
+    "mnapoli/silly": {
+        "version": "1.7.2"
+    },
+    "nyholm/psr7": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "7c0a9352a57376f04f5444e74565102c3a23d0c7"
+        },
+        "files": [
+            "config/packages/nyholm_psr7.yaml"
+        ]
+    },
+    "php-di/invoker": {
+        "version": "2.3.0"
+    },
+    "php-http/message-factory": {
+        "version": "1.0-dev"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -8,8 +41,20 @@
     "psr/event-dispatcher": {
         "version": "1.0.x-dev"
     },
+    "psr/http-factory": {
+        "version": "1.0.x-dev"
+    },
+    "psr/http-message": {
+        "version": "1.0.x-dev"
+    },
+    "psr/http-server-handler": {
+        "version": "1.0.x-dev"
+    },
     "psr/log": {
         "version": "1.1.x-dev"
+    },
+    "riverline/multipart-parser": {
+        "version": "2.0.8"
     },
     "symfony/cache": {
         "version": "5.x-dev"
@@ -88,6 +133,9 @@
             "src/Kernel.php"
         ]
     },
+    "symfony/http-client": {
+        "version": "5.x-dev"
+    },
     "symfony/http-client-contracts": {
         "version": "2.4-dev"
     },
@@ -111,6 +159,9 @@
     },
     "symfony/polyfill-php80": {
         "version": "1.22-dev"
+    },
+    "symfony/process": {
+        "version": "5.x-dev"
     },
     "symfony/routing": {
         "version": "5.1",
