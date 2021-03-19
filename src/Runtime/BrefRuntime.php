@@ -20,7 +20,7 @@ class BrefRuntime extends SymfonyRuntime
      */
     public function __construct(array $options = [])
     {
-        $options['bref_loop_max'] = $options['bref_loop_max'] ?? $_SERVER['BREF_LOOP_MAX'] ?? _ENV['BREF_LOOP_MAX'] ?? 1;
+        $options['bref_loop_max'] = $options['bref_loop_max'] ?? $_SERVER['BREF_LOOP_MAX'] ?? $_ENV['BREF_LOOP_MAX'] ?? 1;
         parent::__construct($options);
     }
 
@@ -46,9 +46,7 @@ class BrefRuntime extends SymfonyRuntime
         }
 
         if ($application instanceof Application) {
-            $defaultEnv = !isset($this->options['env']) ? ($_SERVER['APP_ENV'] ?? 'dev') : null;
-
-            return new ConsoleApplicationRunner($application, $defaultEnv);
+            return new ConsoleApplicationRunner($application);
         }
 
         return parent::getRunner($application);
