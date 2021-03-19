@@ -15,7 +15,6 @@ provider:
     deploymentPrefix: com.subtreesplit/${sls:instanceId}
     environment:
         APP_ENV: prod
-        BREF_AUTOLOAD_PATH: /var/task/public/index.php
         APP_RUNTIME: App\Runtime\BrefRuntime
 
 plugins:
@@ -28,6 +27,7 @@ functions:
         timeout: 8
         layers:
             - ${bref:layer.php-74}
+            - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:1
         events:
             -   httpApi: '*'
 
