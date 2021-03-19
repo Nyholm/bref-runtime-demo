@@ -9,11 +9,14 @@ provider:
     region: ${self:custom.region}
     stage: ${self:custom.stage}
     runtime: provided.al2
+    memorySize: 1792
     deploymentBucket:
         name: nyholm-lambda-applications
     deploymentPrefix: com.subtreesplit/${sls:instanceId}
     environment:
         APP_ENV: prod
+        BREF_AUTOLOAD_PATH: /var/task/public/index.php
+        APP_RUNTIME: App\Runtime\BrefRuntime
 
 plugins:
     - ./vendor/bref/bref
@@ -24,7 +27,7 @@ functions:
         description: ''
         timeout: 8
         layers:
-            - ${bref:layer.php-74-fpm}
+            - ${bref:layer.php-74}
         events:
             -   httpApi: '*'
 
