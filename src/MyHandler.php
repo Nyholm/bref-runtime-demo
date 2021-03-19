@@ -9,6 +9,6 @@ class MyHandler implements Handler
 {
     public function handle($event, Context $context)
     {
-        return 'Super cool handler form the container!';
+        return 'Super cool handler from the container!';
     }
 }
