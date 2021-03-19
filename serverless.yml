@@ -15,7 +15,7 @@ provider:
     deploymentPrefix: com.subtreesplit/${sls:instanceId}
     environment:
         APP_ENV: prod
-        APP_RUNTIME: App\Runtime\BrefRuntime
+        APP_RUNTIME: Runtime\Bref\Runtime
         BREF_LOOP_MAX: 3
 
 plugins:
@@ -51,7 +51,6 @@ functions:
             - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:3
         events:
             -   httpApi: 'GET /container'
-
 
     console:
         handler: bin/console
