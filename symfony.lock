@@ -126,6 +126,9 @@
             "config/routes.yaml"
         ]
     },
+    "symfony/runtime": {
+        "version": "5.x-dev"
+    },
     "symfony/service-contracts": {
         "version": "2.4-dev"
     },
