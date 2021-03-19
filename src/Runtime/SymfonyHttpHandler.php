@@ -32,7 +32,7 @@ class SymfonyHttpHandler extends HttpHandler
             'REQUEST_URI' => $event->getUri(),
         ];
 
-        foreach($event->getHeaders() as $name => $values) {
+        foreach ($event->getHeaders() as $name => $values) {
             $server['HTTP_'.strtoupper($name)] = $values[0];
         }
 
@@ -46,8 +46,6 @@ class SymfonyHttpHandler extends HttpHandler
             $server,
             $event->getBody()
         );
-
-
 
         $response = $this->kernel->handle($request);
 
