@@ -1,9 +1,17 @@
 service: bref-runtime-demo
 
+custom:
+    stage: ${opt:stage, "dev"}
+    region: eu-central-1
+
 provider:
     name: aws
-    region: eu-central-1
+    region: ${self:custom.region}
+    stage: ${self:custom.stage}
     runtime: provided.al2
+    deploymentBucket:
+        name: nyholm-lambda-applications
+    deploymentPrefix: com.subtreesplit/${sls:instanceId}
 
 plugins:
     - ./vendor/bref/bref
