@@ -1,0 +1,25 @@
+service: bref-runtime-demo
+
+provider:
+    name: aws
+    region: eu-central-1
+    runtime: provided.al2
+
+plugins:
+    - ./vendor/bref/bref
+
+functions:
+    api:
+        handler: public/index.php
+        description: ''
+        timeout: 8
+        layers:
+            - ${bref:layer.php-74-fpm}
+        events:
+            -   httpApi: '*'
+
+# Exclude files from deployment
+package:
+    exclude:
+        - 'node_modules/**'
+        - 'tests/**'

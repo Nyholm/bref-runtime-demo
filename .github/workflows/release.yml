@@ -1,0 +1,47 @@
+name: Deploy
+
+on:
+    push:
+        branches: ['main']
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: apcu
+          coverage: none
+
+      - name: Install Node depndencies
+        run: npm ci
+
+      - name: Download dependencies
+        env:
+          APP_ENV: prod
+        run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Warm up cache
+        run: |
+          rm -rf var/cache/*
+          bin/console cache:warmup --env=prod
+          echo "<?php return [];" > .env.local.php
+
+      - name: Serverless deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: eu-central-1
+        run: |
+          ./node_modules/.bin/serverless deploy --stage=prod --force
