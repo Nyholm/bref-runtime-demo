@@ -16,6 +16,7 @@ provider:
     environment:
         APP_ENV: prod
         APP_RUNTIME: App\Runtime\BrefRuntime
+        BREF_LOOP_MAX: 3
 
 plugins:
     - ./vendor/bref/bref

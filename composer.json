@@ -55,7 +55,7 @@
             "allow-contrib": false,
             "require": "5.*"
         },
-        "runtime": {
+        "runtiXme": {
             "bref_loop_max": 5
         }
     },

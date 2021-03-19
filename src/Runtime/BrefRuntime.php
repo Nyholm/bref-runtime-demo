@@ -19,7 +19,7 @@ class BrefRuntime extends SymfonyRuntime
      */
     public function __construct(array $options = [])
     {
-        $options['bref_loop_max'] = $options['bref_loop_max'] ?? getenv('BREF_LOOP_MAX') ?: 1;
+        $options['bref_loop_max'] = $options['bref_loop_max'] ?? $_SERVER['BREF_LOOP_MAX'] ?? _ENV['BREF_LOOP_MAX'] ?? 1;
         parent::__construct($options);
     }
 
