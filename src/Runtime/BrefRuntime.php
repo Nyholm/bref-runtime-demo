@@ -12,6 +12,17 @@ use Symfony\Component\Runtime\SymfonyRuntime;
 
 class BrefRuntime extends SymfonyRuntime
 {
+    /**
+     * @param array{
+     *   bref_loop_max?: int,
+     * } $options
+     */
+    public function __construct(array $options = [])
+    {
+        $options['bref_loop_max'] = $options['bref_loop_max'] ?? getenv('BREF_LOOP_MAX') ?: 1;
+        parent::__construct($options);
+    }
+
     public function getRunner(?object $application): RunnerInterface
     {
         if ($application instanceof HttpKernelInterface) {
@@ -30,7 +41,7 @@ class BrefRuntime extends SymfonyRuntime
         }
 
         if ($application instanceof Handler) {
-            return new BrefRunner($application);
+            return new BrefRunner($application, $this->options['loop_max']);
         }
 
         return parent::getRunner($application);

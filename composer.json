@@ -54,6 +54,9 @@
         "symfony": {
             "allow-contrib": false,
             "require": "5.*"
+        },
+        "runtime": {
+            "bref_loop_max": 5
         }
     },
     "prefer-stable": true
