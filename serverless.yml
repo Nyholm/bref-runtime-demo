@@ -43,6 +43,15 @@ functions:
         events:
             -   httpApi: 'GET /timeout'
 
+    foobarmax:
+        handler: public/loop.php
+        description: ''
+        timeout: 8
+        layers:
+            - ${bref:layer.php-74}
+        events:
+            -   httpApi: 'GET /timeout-loop'
+
     psr:
         handler: public/psr.php
         description: ''
