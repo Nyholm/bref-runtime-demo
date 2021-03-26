@@ -25,7 +25,7 @@ class HelloController extends AbstractController
     {
         for ($i = 0; $i<10; $i++) {
             echo '.';
-            sleep(1);
+            //sleep(1);
         }
         return new Response('Timeout');
     }
