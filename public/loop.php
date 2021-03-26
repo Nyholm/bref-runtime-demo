@@ -9,10 +9,11 @@ class Handler implements \Bref\Event\Handler
     private static $count = 0;
     public function handle($event, Context $context)
     {
-        if (self::$count === 1) {
+        self::$count++;
+        if (self::$count === 2) {
             sleep(10);
         }
-        return 'Hello ' . self::$count++;
+        return 'Hello ' . self::$count;
     }
 }
 
