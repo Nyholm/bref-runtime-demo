@@ -20,4 +20,13 @@ class HelloController extends AbstractController
     {
         return new Response('Foo Symfony');
     }
+
+    public function timeout()
+    {
+        for ($i = 0; $i<10; $i++) {
+            echo '.';
+            sleep(1);
+        }
+        return new Response('Timeout');
+    }
 }

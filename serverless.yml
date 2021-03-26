@@ -17,6 +17,7 @@ provider:
         APP_ENV: prod
         APP_RUNTIME: Runtime\Bref\Runtime
         BREF_LOOP_MAX: 3
+        BREF_TIMEOUT: 5
 
 plugins:
     - ./vendor/bref/bref
@@ -31,6 +32,16 @@ functions:
             - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:3
         events:
             -   httpApi: 'GET /'
+
+    foobar:
+        handler: public/index.php
+        description: ''
+        timeout: 8
+        layers:
+            - ${bref:layer.php-74}
+            - ${bref:layer.php-74-fpm}
+        events:
+            -   httpApi: 'GET /timeout'
 
     psr:
         handler: public/psr.php

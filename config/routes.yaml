@@ -5,3 +5,7 @@ index:
 foo:
     path: /foo
     controller: App\Controller\HelloController::foo
+
+timeout:
+    path: /timeout
+    controller: App\Controller\HelloController::timeout

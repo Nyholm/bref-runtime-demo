@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d29214a16f0485f91c10f65cd6bdfb23",
+    "content-hash": "35fdc9c3a3e0847749090c1164d5d93c",
     "packages": [
         {
             "name": "async-aws/core",
@@ -132,16 +132,16 @@
         },
         {
             "name": "bref/bref",
-            "version": "1.2.1",
+            "version": "dev-timeouts",
             "source": {
                 "type": "git",
-                "url": "https://github.com/brefphp/bref.git",
-                "reference": "c1c48ef3169a604d62221fb1ed2c3b0e3496d1f3"
+                "url": "https://github.com/Nyholm/bref.git",
+                "reference": "cd38e499fe1e1ea7a5e7053c73f4370f6a0b5663"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brefphp/bref/zipball/c1c48ef3169a604d62221fb1ed2c3b0e3496d1f3",
-                "reference": "c1c48ef3169a604d62221fb1ed2c3b0e3496d1f3",
+                "url": "https://api.github.com/repos/Nyholm/bref/zipball/cd38e499fe1e1ea7a5e7053c73f4370f6a0b5663",
+                "reference": "cd38e499fe1e1ea7a5e7053c73f4370f6a0b5663",
                 "shasum": ""
             },
             "require": {
@@ -177,7 +177,27 @@
                     "Bref\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Bref\\Test\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "@static-analysis",
+                    "@unit-tests",
+                    "@code-style"
+                ],
+                "code-style": [
+                    "vendor/bin/phpcs"
+                ],
+                "static-analysis": [
+                    "vendor/bin/phpstan analyse"
+                ],
+                "tests": [
+                    "vendor/bin/phpunit --testsuite small"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -191,20 +211,15 @@
                 "serverless"
             ],
             "support": {
-                "issues": "https://github.com/brefphp/bref/issues",
-                "source": "https://github.com/brefphp/bref/tree/1.2.1"
+                "source": "https://github.com/Nyholm/bref/tree/timeouts"
             },
             "funding": [
                 {
-                    "url": "https://bref.sh/#enterprise",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/mnapoli",
-                    "type": "github"
+                    "type": "github",
+                    "url": "https://github.com/mnapoli"
                 }
             ],
-            "time": "2021-03-16T18:49:44+00:00"
+            "time": "2021-03-26T08:10:11+00:00"
         },
         {
             "name": "clue/arguments",
@@ -1003,12 +1018,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-runtime/bref.git",
-                "reference": "d39c25af51cee6b308ddc23c18ca8accdb51bc3a"
+                "reference": "a4aa5292c24dc08aafb8e6154acf79afb396dd59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-runtime/bref/zipball/d39c25af51cee6b308ddc23c18ca8accdb51bc3a",
-                "reference": "d39c25af51cee6b308ddc23c18ca8accdb51bc3a",
+                "url": "https://api.github.com/repos/php-runtime/bref/zipball/a4aa5292c24dc08aafb8e6154acf79afb396dd59",
+                "reference": "a4aa5292c24dc08aafb8e6154acf79afb396dd59",
                 "shasum": ""
             },
             "require": {
@@ -1039,7 +1054,7 @@
             ],
             "authors": [
                 {
-                    "name": "Nyholm",
+                    "name": "Tobias Nyholm",
                     "email": "tobias.nyholm@gmail.com"
                 }
             ],
@@ -1053,7 +1068,7 @@
                     "url": "https://github.com/nyholm"
                 }
             ],
-            "time": "2021-03-19T23:10:59+00:00"
+            "time": "2021-03-22T11:26:51+00:00"
         },
         {
             "name": "symfony/cache",
@@ -3116,12 +3131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/runtime.git",
-                "reference": "73002be07fa0fe7484cdac46fe5b62170f14337f"
+                "reference": "4e3172f15f4c4d12a9c22b8593b0952b6c6e056a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/runtime/zipball/73002be07fa0fe7484cdac46fe5b62170f14337f",
-                "reference": "73002be07fa0fe7484cdac46fe5b62170f14337f",
+                "url": "https://api.github.com/repos/symfony/runtime/zipball/4e3172f15f4c4d12a9c22b8593b0952b6c6e056a",
+                "reference": "4e3172f15f4c4d12a9c22b8593b0952b6c6e056a",
                 "shasum": ""
             },
             "require": {
@@ -3186,7 +3201,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-03-19T15:55:34+00:00"
+            "time": "2021-03-20T12:56:11+00:00"
         },
         {
             "name": "symfony/service-contracts",
@@ -3588,9 +3603,17 @@
         }
     ],
     "packages-dev": [],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "bref/bref",
+            "version": "dev-timeouts",
+            "alias": "1.3.0",
+            "alias_normalized": "1.3.0.0"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "bref/bref": 20,
         "runtime/bref": 20
     },
     "prefer-stable": true,
