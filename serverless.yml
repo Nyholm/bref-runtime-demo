@@ -34,7 +34,7 @@ functions:
             -   httpApi: 'GET /'
 
     foobar:
-        handler: public/index.php
+        handler: public/no-runtime.php
         description: ''
         timeout: 8
         layers:
