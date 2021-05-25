@@ -27,7 +27,7 @@ functions:
         description: ''
         timeout: 8
         layers:
-            - ${bref:layer.php-74}
+            - ${bref:layer.php-80}
             - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:3
         events:
             -   httpApi: 'GET /'
@@ -37,8 +37,8 @@ functions:
         description: ''
         timeout: 8
         layers:
-            - ${bref:layer.php-74}
-            - ${bref-extra:symfony-runtime-php-74}
+            - ${bref:layer.php-80}
+            - ${bref-extra:symfony-runtime-php-80}
         events:
             -   httpApi: 'GET /psr'
 
@@ -47,8 +47,8 @@ functions:
         description: ''
         timeout: 8
         layers:
-            - ${bref:layer.php-74}
-            - ${bref-extra:symfony-runtime-php-74}
+            - ${bref:layer.php-80}
+            - ${bref-extra:symfony-runtime-php-80}
         events:
             -   httpApi: 'GET /container'
 
@@ -57,8 +57,8 @@ functions:
         description: ''
         timeout: 3
         layers:
-            - ${bref:layer.php-74}
-            - ${bref-extra:symfony-runtime-php-74}
+            - ${bref:layer.php-80}
+            - ${bref-extra:symfony-runtime-php-80}
 
 # Exclude files from deployment
 package:

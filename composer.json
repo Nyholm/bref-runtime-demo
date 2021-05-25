@@ -3,7 +3,7 @@
     "license": "proprietary",
     "minimum-stability": "dev",
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=7.4.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "bref/bref": "^1.2",
@@ -21,7 +21,10 @@
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "php": "8.0.4"
+        }
     },
     "autoload": {
         "psr-4": {
