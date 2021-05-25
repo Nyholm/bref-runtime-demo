@@ -6,15 +6,15 @@
         "php": ">=7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "bref/bref": "dev-timeouts as 1.3.0",
-        "clue/arguments": "^2.1",
-        "symfony/console": "5.*",
-        "symfony/dotenv": "5.*",
+        "bref/bref": "^1.2",
+        "bref/extra-php-extensions": "dev-master as 0.11.4",
+        "runtime/bref": "^0.1.0",
+        "symfony/console": "^5.2",
+        "symfony/dotenv": "^5.2",
         "symfony/flex": "^1.3.1",
-        "symfony/framework-bundle": "5.*",
-        "symfony/runtime": "5.*",
-        "symfony/yaml": "5.*",
-        "runtime/bref": "dev-main"
+        "symfony/framework-bundle": "^5.2",
+        "symfony/runtime": "^5.2",
+        "symfony/yaml": "^5.2"
     },
     "config": {
         "optimize-autoloader": true,
@@ -55,18 +55,8 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "5.*"
+            "require": "^5.2"
         }
     },
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/php-runtime/bref"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/nyholm/bref"
-        }
-    ]
+    "prefer-stable": true
 }

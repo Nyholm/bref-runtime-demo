@@ -8,6 +8,9 @@
     "bref/bref": {
         "version": "dev-master"
     },
+    "bref/extra-php-extensions": {
+        "version": "0.11.3"
+    },
     "clue/arguments": {
         "version": "v2.1.0"
     },

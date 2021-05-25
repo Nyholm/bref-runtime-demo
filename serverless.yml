@@ -32,32 +32,13 @@ functions:
         events:
             -   httpApi: 'GET /'
 
-    foobar:
-        handler: public/no-runtime.php
-        description: ''
-        timeout: 8
-        layers:
-            - ${bref:layer.php-74}
-            - ${bref:layer.php-74-fpm}
-        events:
-            -   httpApi: 'GET /timeout'
-
-    foobarmax:
-        handler: public/loop.php
-        description: ''
-        timeout: 8
-        layers:
-            - ${bref:layer.php-74}
-        events:
-            -   httpApi: 'GET /timeout-loop'
-
     psr:
         handler: public/psr.php
         description: ''
         timeout: 8
         layers:
             - ${bref:layer.php-74}
-            - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:3
+            - ${bref-extra:symfony-runtime-php-74}
         events:
             -   httpApi: 'GET /psr'
 
@@ -67,7 +48,7 @@ functions:
         timeout: 8
         layers:
             - ${bref:layer.php-74}
-            - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:3
+            - ${bref-extra:symfony-runtime-php-74}
         events:
             -   httpApi: 'GET /container'
 
@@ -77,7 +58,7 @@ functions:
         timeout: 3
         layers:
             - ${bref:layer.php-74}
-            - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:3
+            - ${bref-extra:symfony-runtime-php-74}
 
 # Exclude files from deployment
 package:
