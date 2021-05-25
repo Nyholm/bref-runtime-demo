@@ -8,6 +8,7 @@
         "ext-iconv": "*",
         "bref/bref": "^1.2",
         "bref/extra-php-extensions": "dev-master as 0.11.4",
+        "bref/symfony-bridge": "^0.1.1",
         "runtime/bref": "^0.1.0",
         "symfony/console": "^5.2",
         "symfony/dotenv": "^5.2",

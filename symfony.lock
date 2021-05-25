@@ -11,6 +11,15 @@
     "bref/extra-php-extensions": {
         "version": "0.11.3"
     },
+    "bref/symfony-bridge": {
+        "version": "0.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.1",
+            "ref": "f20b0f232526b14d5e4734030b47ad6c887757a9"
+        }
+    },
     "clue/arguments": {
         "version": "v2.1.0"
     },
