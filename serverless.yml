@@ -12,15 +12,13 @@ provider:
     memorySize: 1792
     deploymentBucket:
         name: nyholm-lambda-applications
-    deploymentPrefix: com.subtreesplit/${sls:instanceId}
     environment:
         APP_ENV: prod
         APP_RUNTIME: Runtime\Bref\Runtime
         BREF_LOOP_MAX: 3
 
 plugins:
-    - ./vendor/bref/bref
-    - ./vendor/bref/extra-php-extensions
+    - ./vendor/runtime/bref-layer
 
 functions:
     symfony:
@@ -28,18 +26,17 @@ functions:
         description: ''
         timeout: 8
         layers:
-            - ${bref:layer.php-80}
-            - arn:aws:lambda:eu-central-1:403367587399:layer:bref-symfony-runtime:3
+            - ${runtime-bref:php-80}
         events:
             -   httpApi: 'GET /'
+            -   httpApi: 'GET /foo'
 
     psr:
         handler: public/psr.php
         description: ''
         timeout: 8
         layers:
-            - ${bref:layer.php-80}
-            - ${bref-extra:symfony-runtime-php-80}
+            - ${runtime-bref:php-80}
         events:
             -   httpApi: 'GET /psr'
 
@@ -48,8 +45,7 @@ functions:
         description: ''
         timeout: 8
         layers:
-            - ${bref:layer.php-80}
-            - ${bref-extra:symfony-runtime-php-80}
+            - ${runtime-bref:php-80}
         events:
             -   httpApi: 'GET /container'
 
@@ -58,8 +54,7 @@ functions:
         description: ''
         timeout: 3
         layers:
-            - ${bref:layer.php-80}
-            - ${bref-extra:symfony-runtime-php-80}
+            - ${runtime-bref:php-80}
 
 # Exclude files from deployment
 package:
